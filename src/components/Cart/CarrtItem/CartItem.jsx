@@ -10,10 +10,10 @@ import {
 
 import useStyles from './styles';
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, handleUpdateCartQty, handleRemoveFromCart }) => {
   const classes = useStyles();
   console.log(item.image.url);
-
+  const totalItemQuantity = item.quantity * item.price.formatted;
   return (
     <Card>
       <CardMedia
@@ -24,19 +24,32 @@ const CartItem = ({ item }) => {
       />
       <CardContent className={classes.cardContent}>
         <Typography variant="h5">{item.name}</Typography>
-        <Typography variant="h6">{item.price.formatted_with_code}</Typography>
+        <Typography variant="h6">{totalItemQuantity} AED</Typography>
       </CardContent>
       <CardActions className={classes.cartActions}>
         <div className={classes.buttons}>
-          <Button type="button" size="small">
+          <Button
+            type="button"
+            size="small"
+            onClick={() => handleUpdateCartQty(item.id, item.quantity - 1)}
+          >
             -
           </Button>
-          <Typography>{item.quantity}</Typography>
-          <Button type="button" size="small">
+          <Typography>{item.quantity} </Typography>
+          <Button
+            type="button"
+            size="small"
+            onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}
+          >
             +
           </Button>
         </div>
-        <Button variant="contained" type="button" color="secondary">
+        <Button
+          variant="contained"
+          type="button"
+          color="secondary"
+          onClick={() => handleRemoveFromCart(item.id)}
+        >
           Remove
         </Button>
       </CardActions>

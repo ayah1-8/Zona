@@ -18,6 +18,7 @@ const Product = ({ product, onAddToCart }) => {
         className={classes.media}
         image={product.image.url}
         title={product.name}
+        component="img"
       />
       <CardContent>
         <div className={classes.cardContent}>

@@ -15,11 +15,18 @@ import useStyles from './styles';
 
 const Navbar = ({ totalItems }) => {
   const classes = useStyles();
+  const location = useLocation();
   return (
     <>
       <AppBar position="fixed" className={classes.appBar} color="inherit">
         <Toolbar>
-          <Typography variant="h6" className={classes.title} color="inherit">
+          <Typography
+            component={Link}
+            to="/"
+            variant="h6"
+            className={classes.title}
+            color="inherit"
+          >
             <img
               src={logo}
               alt="title"
@@ -30,14 +37,21 @@ const Navbar = ({ totalItems }) => {
           </Typography>
           <div className={classes.grow} />
           <div className={classes.button}>
-            <IconButton aria-label="show cart items" color="inherit">
-              <Badge
-                badgeContent={totalItems}
-                color="secondary"
-                overlap="rectangular"
-              >
-                <ShoppingCart />
-              </Badge>
+            <IconButton
+              component={Link}
+              to="/cart"
+              aria-label="show cart items"
+              color="inherit"
+            >
+              {location.pathname === '/' && (
+                <Badge
+                  badgeContent={totalItems}
+                  color="secondary"
+                  overlap="rectangular"
+                >
+                  <ShoppingCart />
+                </Badge>
+              )}
             </IconButton>
           </div>
         </Toolbar>
