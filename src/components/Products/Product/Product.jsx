@@ -26,10 +26,11 @@ const Product = ({ product, onAddToCart }) => {
           <Typography>{product.price.formatted_with_code}</Typography>
         </div>
         <Typography
+          className={classes.description}
           dangerouslySetInnerHTML={{ __html: product.description }}
           variant="body2"
           color="textSecondary"
-        />
+        ></Typography>
       </CardContent>
       <CardActions disableSpacing className={classes.cardActions}>
         <IconButton

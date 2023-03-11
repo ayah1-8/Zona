@@ -12,7 +12,6 @@ import useStyles from './styles';
 
 const CartItem = ({ item, handleUpdateCartQty, handleRemoveFromCart }) => {
   const classes = useStyles();
-  console.log(item.image.url);
   const totalItemQuantity = item.quantity * item.price.formatted;
   return (
     <Card>

@@ -15,10 +15,13 @@ export default makeStyles(() => ({
   },
   cartActions: {
     display: 'flex',
-    justifyContent: 'flex-end',
+    justifycontent: 'flex-end',
   },
   buttons: {
     display: 'flex',
     alignItems: 'center',
+  },
+  description: {
+    display: 'flex',
   },
 }));
